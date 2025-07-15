@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tourguide/components/assets.dart';
+import 'package:tourguide/components/routes.dart';
 import 'dart:async';
-import 'package:tourguide/pages/main_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,10 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Future.delayed(const Duration(seconds: 4), () {
       if (!mounted) return; // Pastikan widget masih aktif
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => const MainPage()),
-      );
+      Navigator.pushReplacementNamed(context, Routes.qrScreen);
     });
   }
 
@@ -27,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(child: Image.asset('assets/gambar.jpg', width: 200)),
+      body: Center(child: Image.asset(Assets.logoBackground, width: 200)),
     );
   }
 }
