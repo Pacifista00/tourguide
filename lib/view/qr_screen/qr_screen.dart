@@ -6,6 +6,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:tourguide/bloc/qr_code_cubit/qr_cubit.dart';
 import 'package:tourguide/components/routes.dart';
+// Correct import for the generated localization file
+
+import 'package:tourguide/l10n/app_localizations.dart';
+import 'package:tourguide/main.dart';
 import 'package:tourguide/view/qr_screen/scanner_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tourguide/widget/button.dart';
@@ -28,6 +32,7 @@ class _QrScreenAuthState extends State<QrScreenAuth> {
     );
   }
 }
+// --- (End of QrScreenAuth) ---
 
 class QrScreen extends StatefulWidget {
   const QrScreen({super.key});
@@ -41,7 +46,6 @@ class _QrScreenState extends State<QrScreen> with WidgetsBindingObserver {
     autoStart: false,
   );
   StreamSubscription<Object?>? _subscription;
-  Barcode? _barcode;
 
   @override
   void initState() {
@@ -62,11 +66,8 @@ class _QrScreenState extends State<QrScreen> with WidgetsBindingObserver {
         return;
       case AppLifecycleState.resumed:
         _subscription = _controller.barcodes.listen(handleScannedBarcode);
-
         unawaited(_controller.start());
       case AppLifecycleState.inactive:
-        // Stop the scanner when the app is paused.
-        // Also stop the barcode events subscription.
         unawaited(_subscription?.cancel());
         _subscription = null;
         unawaited(_controller.stop());
@@ -77,18 +78,93 @@ class _QrScreenState extends State<QrScreen> with WidgetsBindingObserver {
     final Barcode? barcode =
         capture.barcodes.isNotEmpty ? capture.barcodes.first : null;
     final String? rawValue = barcode?.rawValue;
+
+    // Get the localized strings
+    final appLocalizations = AppLocalizations.of(context)!;
+
     if (rawValue != null && rawValue == "t0urgu1de") {
       debugPrint("Hasil dari scanner $rawValue ");
-      context.read<QrCubit>().setQrResult(rawValue);
+      context.read<QrCubit>().setQrResult(
+            rawValue,
+          );
       Navigator.pushReplacementNamed(context, Routes.onBoardPage);
     } else {
-      print("Barcode kosong");
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(appLocalizations.barcodeMismatch), // Localized string
+        ),
+      );
     }
   }
 
   @override
+  void dispose() {
+    unawaited(_subscription?.cancel());
+    _subscription = null;
+    unawaited(_controller.dispose());
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    // Access the AppLocalizations instance
+    final appLocalizations = AppLocalizations.of(context)!;
+    final currentLocale = Localizations.localeOf(context);
+
+    final setLocale = LocaleSetter.of(context)!
+        .setLocale; // --> function localesetter ada di main.dart
+
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [
+          PopupMenuButton<String>(
+            icon: const Icon(Icons.language, color: Colors.black),
+            onSelected: (value) {
+              if (value == 'id') {
+                setLocale(const Locale('id')); // Set locale to Indonesian
+              } else if (value == 'en') {
+                setLocale(const Locale('en')); // Set locale to English
+              }
+            },
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 'id',
+                child: Row(
+                  children: [
+                    Text('Indonesia'), // pindah ke bahasa indonesia
+                    SizedBox(width: 20.w),
+
+                    if (currentLocale.languageCode == 'id')
+                      Icon(
+                        Icons.done_all_outlined,
+                        color: Colors.green, // Indicate selection
+                      ),
+                  ],
+                ),
+              ),
+              PopupMenuItem(
+                value: 'en',
+                child: Row(
+                  children: [
+                    Text("English"), // Pindah ke Bahasa Inggris
+                    SizedBox(width: 20.w),
+
+                    if (currentLocale.languageCode == 'en')
+                      Icon(
+                        Icons.done_all_outlined,
+                        color: Colors.green,
+                      ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
       body: Column(
         children: [
           Column(
@@ -97,14 +173,14 @@ class _QrScreenState extends State<QrScreen> with WidgetsBindingObserver {
               SizedBox(height: 100.h),
               Text.rich(
                 TextSpan(
-                  text: "Welcome To\n",
+                  text: appLocalizations.welcomeTo, // Use localized string
                   style: GoogleFonts.notoSansSamaritan(
                     fontSize: 20.sp,
                     color: Colors.black,
                   ),
                   children: [
                     TextSpan(
-                      text: "TourGuide",
+                      text: appLocalizations.tourGuide, // Use localized string
                       style: GoogleFonts.notoSansSamaritan(
                         fontSize: 17.sp,
                         color: Colors.black45,
@@ -116,7 +192,7 @@ class _QrScreenState extends State<QrScreen> with WidgetsBindingObserver {
               ),
             ],
           ),
-          Spacer(),
+          const Spacer(),
           buttonAction(context, handleScannedBarcode, () {
             Navigator.push(
               context,
@@ -126,7 +202,7 @@ class _QrScreenState extends State<QrScreen> with WidgetsBindingObserver {
                 },
               ),
             );
-          }, "Scan Qr Code"),
+          }, appLocalizations.scanQrCode),
         ],
       ),
     );

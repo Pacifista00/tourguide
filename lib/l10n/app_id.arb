@@ -1,0 +1,9 @@
+{
+  "@@locale": "id",
+  "welcomeTo": "Selamat Datang di\n",
+  "tourGuide": "TourGuide",
+  "barcodeMismatch": "Barcode Tidak Cocok",
+  "scanQrCode": "Pindai Kode QR",
+  "languageChangedToEnglish": "Language changed to English",
+  "languageChangedToIndonesian": "Bahasa diubah ke Indonesia"
+}

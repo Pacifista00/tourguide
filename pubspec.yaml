@@ -4,12 +4,25 @@ description: "A new Flutter project."
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at https://developer.com/documentation/foundation/bundles/specifying_a_custom_bundle_version
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+# publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
 
 # of the product and file versions while build-number is used as the build suffix.
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.7.2
+  sdk: '>=3.0.0 <4.0.0' # Adjusting based on your ^3.7.2, good to use broader range
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -20,7 +33,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
@@ -31,6 +43,11 @@ dependencies:
   flutter_screenutil: ^5.9.3
   just_audio: ^0.10.4
   panorama_viewer: ^2.0.4
+
+  # Correct Flutter localization dependencies:
+  flutter_localizations: # This is the correct package for Flutter's built-in localization
+    sdk: flutter
+  intl: ^0.20.2 
 
 dev_dependencies:
   flutter_test:
@@ -48,10 +65,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
+  generate: true # This should be directly under the top-level `flutter:` key..
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:

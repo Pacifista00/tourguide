@@ -1,0 +1,9 @@
+{
+  "@@locale": "en",
+  "welcomeTo": "Welcome To\n",
+  "tourGuide": "TourGuide",
+  "barcodeMismatch": "Barcode Mismatch",
+  "scanQrCode": "Scan QR Code",
+  "languageChangedToEnglish": "Language changed to English",
+  "languageChangedToIndonesian": "Bahasa diubah ke Indonesia"
+}

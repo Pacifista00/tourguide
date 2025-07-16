@@ -37,7 +37,7 @@ class MainPage extends StatelessWidget {
               child: Column(
                 children: [
                   Image.asset(gambarList[index], fit: BoxFit.cover),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 5),
                   Text(
                     'Gambar ke-${index + 1}',
                     style: const TextStyle(
