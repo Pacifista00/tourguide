@@ -62,7 +62,6 @@ class _PanoramaViewPageState extends State<PanoramaViewPage> {
         animSpeed: 0,
         zoom: 0.002,
         sensorControl: SensorControl.none,
-
         hotspots: [
           Hotspot(
             latitude: 0,
@@ -144,8 +143,8 @@ class _PanoramaViewPageState extends State<PanoramaViewPage> {
           ),
 
           Hotspot(
-            latitude: -35,
-            longitude: 128,
+            latitude: -25,
+            longitude: 357,
             width: 180,
             height: 60,
             widget: GestureDetector(
