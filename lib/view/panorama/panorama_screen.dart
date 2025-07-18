@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:panorama_viewer/panorama_viewer.dart';
 import 'package:tourguide/components/assets.dart';
+import 'package:tourguide/l10n/app_localizations.dart';
 
 class PanoramaViewPage extends StatefulWidget {
   final String imagePath;
@@ -18,14 +19,23 @@ class PanoramaViewPage extends StatefulWidget {
 }
 
 class _PanoramaViewPageState extends State<PanoramaViewPage> {
-  late AudioPlayer _player;
+  final AudioPlayer _player = AudioPlayer();
   bool isPlaying = false;
 
   @override
   void initState() {
     super.initState();
-    _player = AudioPlayer();
-    _player.setAsset(AssetsAudio.audioOnboard); // Preload audio
+
+    // _player.setAsset(AssetsAudio.audioOnboard);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      final locale = Localizations.localeOf(context);
+      final audioPath = locale.languageCode == 'en'
+          ? AssetsAudio.audioOnboarden
+          : AssetsAudio.audioOnboard;
+
+      await _player.setAsset(audioPath); // Preload audio sesuai bahasa
+    }); // Preload audio
 
     _player.playerStateStream.listen((state) {
       setState(() {
@@ -56,6 +66,7 @@ class _PanoramaViewPageState extends State<PanoramaViewPage> {
 
   @override
   Widget build(BuildContext context) {
+    final appLocalizations = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(title: Text(widget.title)),
       body: PanoramaViewer(
@@ -74,14 +85,16 @@ class _PanoramaViewPageState extends State<PanoramaViewPage> {
                   context: context,
                   builder: (_) {
                     return AlertDialog(
-                      title: const Text("Info Objek"),
-                      content: const Text("Ini adalah objek penting 1."),
+                      title: Text(appLocalizations.objectInfo),
+                      content: Text("${appLocalizations.objectTag} 1"),
                       actions: [
                         TextButton(
                           onPressed: () async {
                             await _playSound();
                           },
-                          child: Text(isPlaying ? "Jeda Audio" : "Putar Audio"),
+                          child: Text(isPlaying
+                              ? "Jeda Audio"
+                              : appLocalizations.playSound),
                         ),
                         TextButton(
                           onPressed: () async {
@@ -114,14 +127,16 @@ class _PanoramaViewPageState extends State<PanoramaViewPage> {
                   context: context,
                   builder: (_) {
                     return AlertDialog(
-                      title: const Text("Info Objek"),
-                      content: const Text("Ini adalah objek penting 2."),
+                      title: Text(appLocalizations.objectInfo),
+                      content: Text("${appLocalizations.objectTag} 2"),
                       actions: [
                         TextButton(
                           onPressed: () async {
                             await _playSound();
                           },
-                          child: Text(isPlaying ? "Jeda Audio" : "Putar Audio"),
+                          child: Text(isPlaying
+                              ? "Jeda Audio"
+                              : appLocalizations.playSound),
                         ),
                         TextButton(
                           onPressed: () async {
@@ -153,14 +168,16 @@ class _PanoramaViewPageState extends State<PanoramaViewPage> {
                   context: context,
                   builder: (_) {
                     return AlertDialog(
-                      title: const Text("Info Objek"),
-                      content: const Text("Ini adalah objek penting 3."),
+                      title: Text(appLocalizations.objectInfo),
+                      content: Text("${appLocalizations.objectTag} 3"),
                       actions: [
                         TextButton(
                           onPressed: () async {
                             await _playSound();
                           },
-                          child: Text(isPlaying ? "Jeda Audio" : "Putar Audio"),
+                          child: Text(isPlaying
+                              ? "Jeda Audio"
+                              : appLocalizations.playSound),
                         ),
                         TextButton(
                           onPressed: () async {

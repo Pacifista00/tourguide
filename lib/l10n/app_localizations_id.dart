@@ -25,4 +25,25 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get languageChangedToIndonesian => 'Bahasa diubah ke Indonesia';
+
+  @override
+  String get nextStep => 'Lanjutkan';
+
+  @override
+  String get imageStep => 'Gambar ke-';
+
+  @override
+  String get panoramStep => 'Panorama ke-';
+
+  @override
+  String get appBartitle => 'Galeri Gambar';
+
+  @override
+  String get objectInfo => 'Info Objek';
+
+  @override
+  String get objectTag => 'Ini info penting objek';
+
+  @override
+  String get playSound => 'Putar Suara';
 }

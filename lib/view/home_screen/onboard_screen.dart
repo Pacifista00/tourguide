@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tourguide/components/assets.dart';
 import 'package:tourguide/components/routes.dart';
+import 'package:tourguide/l10n/app_localizations.dart';
 import 'package:tourguide/widget/button.dart';
 import 'package:just_audio/just_audio.dart';
 
@@ -51,6 +52,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final appLocalizations = AppLocalizations.of(context)!;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -93,11 +95,10 @@ class _OnboardScreenState extends State<OnboardScreen> {
               ],
             ),
           ),
-
           SizedBox(height: 50.h),
           buttonAction(context, null, () {
             Navigator.pushNamed(context, Routes.homeScreen);
-          }, "Lanjutkan"),
+          }, appLocalizations.nextStep),
         ],
       ),
     );

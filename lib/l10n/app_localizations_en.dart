@@ -25,4 +25,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get languageChangedToIndonesian => 'Bahasa diubah ke Indonesia';
+
+  @override
+  String get nextStep => 'Next';
+
+  @override
+  String get imageStep => 'Image-';
+
+  @override
+  String get panoramStep => 'Panorama-';
+
+  @override
+  String get appBartitle => 'Image Galery';
+
+  @override
+  String get objectInfo => 'Object Information';
+
+  @override
+  String get objectTag => 'This is an main object';
+
+  @override
+  String get playSound => 'Play sound';
 }

@@ -133,6 +133,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Bahasa diubah ke Indonesia'**
   String get languageChangedToIndonesian;
+
+  /// No description provided for @nextStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get nextStep;
+
+  /// No description provided for @imageStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Image-'**
+  String get imageStep;
+
+  /// No description provided for @panoramStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Panorama-'**
+  String get panoramStep;
+
+  /// No description provided for @appBartitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Image Galery'**
+  String get appBartitle;
+
+  /// No description provided for @objectInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Object Information'**
+  String get objectInfo;
+
+  /// No description provided for @objectTag.
+  ///
+  /// In en, this message translates to:
+  /// **'This is an main object'**
+  String get objectTag;
+
+  /// No description provided for @playSound.
+  ///
+  /// In en, this message translates to:
+  /// **'Play sound'**
+  String get playSound;
 }
 
 class _AppLocalizationsDelegate

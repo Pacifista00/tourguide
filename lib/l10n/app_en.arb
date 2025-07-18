@@ -5,5 +5,13 @@
   "barcodeMismatch": "Barcode Mismatch",
   "scanQrCode": "Scan QR Code",
   "languageChangedToEnglish": "Language changed to English",
-  "languageChangedToIndonesian": "Bahasa diubah ke Indonesia"
+  "languageChangedToIndonesian": "Bahasa diubah ke Indonesia",
+  "nextStep" : "Next",
+  "imageStep" : "Image-",
+  "panoramStep" : "Panorama-",
+  "appBartitle" : "Image Galery",
+  "objectInfo" : "Object Information",
+  "objectTag" : "This is an main object",
+  "playSound" : "Play sound"
+
 }

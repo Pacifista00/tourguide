@@ -5,5 +5,12 @@
   "barcodeMismatch": "Barcode Tidak Cocok",
   "scanQrCode": "Pindai Kode QR",
   "languageChangedToEnglish": "Language changed to English",
-  "languageChangedToIndonesian": "Bahasa diubah ke Indonesia"
+  "languageChangedToIndonesian": "Bahasa diubah ke Indonesia",
+  "nextStep" : "Lanjutkan",
+  "imageStep" : "Gambar ke-",
+  "panoramStep" : "Panorama ke-",
+  "appBartitle" : "Galeri Gambar",
+  "objectInfo" : "Info Objek",
+  "objectTag" : "Ini info penting objek",
+  "playSound" : "Putar Suara"
 }
