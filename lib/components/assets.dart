@@ -12,3 +12,7 @@ class AssetsAudio {
   static const String audioOnboard = "Assets/Audio/wonderful.mp3";
   static const String audioOnboarden = "Assets/Audio/wonderful-lesson.mp3";
 }
+
+class AssetsVideo {
+  static const String videoPenjelasan = "Assets/Videos/videoPenjelasan.mp4";
+}

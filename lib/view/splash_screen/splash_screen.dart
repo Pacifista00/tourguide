@@ -17,14 +17,14 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Future.delayed(const Duration(seconds: 4), () {
       if (!mounted) return; // Pastikan widget masih aktif
-      Navigator.pushReplacementNamed(context, Routes.qrScreen);
+      Navigator.pushReplacementNamed(context, Routes.onBoardPage);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.red,
       body: Center(child: Image.asset(Assets.logoBackground, width: 200)),
     );
   }

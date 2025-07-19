@@ -48,6 +48,8 @@ dependencies:
   flutter_localizations: # This is the correct package for Flutter's built-in localization
     sdk: flutter
   intl: ^0.20.2 
+  video_player: ^2.10.0
+  pip_view: ^0.9.7
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +74,7 @@ flutter:
   assets:
     - Assets/images/
     - Assets/Audio/
+    - Assets/Videos/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

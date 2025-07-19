@@ -173,7 +173,7 @@ abstract class AppLocalizations {
   /// No description provided for @playSound.
   ///
   /// In en, this message translates to:
-  /// **'Play sound'**
+  /// **'Play Video'**
   String get playSound;
 }
 

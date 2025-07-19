@@ -45,5 +45,5 @@ class AppLocalizationsEn extends AppLocalizations {
   String get objectTag => 'This is an main object';
 
   @override
-  String get playSound => 'Play sound';
+  String get playSound => 'Play Video';
 }
