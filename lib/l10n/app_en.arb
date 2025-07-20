@@ -1,7 +1,7 @@
 {
   "@@locale": "en",
   "welcomeTo": "Welcome To\n",
-  "tourGuide": "TourGuide",
+  "tourGuide": "TourGuide\n",
   "barcodeMismatch": "Barcode Mismatch",
   "scanQrCode": "Scan QR Code",
   "languageChangedToEnglish": "Language changed to English",

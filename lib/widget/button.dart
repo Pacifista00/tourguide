@@ -3,12 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-Row buttonAction(
-  BuildContext context,
-  Function(BarcodeCapture)? onDetect,
-  Function()? onTap,
-  String? textAction,
-) {
+Row buttonAction(BuildContext context, Function(BarcodeCapture)? onDetect,
+    Function()? onTap, String? textAction, Color? colorBtn) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
@@ -17,11 +13,10 @@ Row buttonAction(
         child: Container(
           width: 200.w,
           height: 60.h,
-
           margin: EdgeInsets.only(bottom: 200.h),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20.w),
-            color: Colors.blueAccent,
+            color: colorBtn,
           ),
           child: Center(
             child: Text(

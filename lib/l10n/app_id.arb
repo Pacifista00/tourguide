@@ -1,7 +1,7 @@
 {
   "@@locale": "id",
   "welcomeTo": "Selamat Datang di\n",
-  "tourGuide": "TourGuide",
+  "tourGuide": "TourGuide\n",
   "barcodeMismatch": "Barcode Tidak Cocok",
   "scanQrCode": "Pindai Kode QR",
   "languageChangedToEnglish": "Language changed to English",
@@ -12,5 +12,5 @@
   "appBartitle" : "Galeri Gambar",
   "objectInfo" : "Info Objek",
   "objectTag" : "Ini info penting objek",
-  "playSound" : "Putar Suara"
+  "playSound" : "Putar Video"
 }

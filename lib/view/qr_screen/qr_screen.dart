@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:tourguide/bloc/qr_code_cubit/qr_cubit.dart';
+import 'package:tourguide/components/assets.dart';
 import 'package:tourguide/components/routes.dart';
 // Correct import for the generated localization file
 
@@ -117,6 +118,7 @@ class _QrScreenState extends State<QrScreen> with WidgetsBindingObserver {
         .setLocale; // --> function localesetter ada di main.dart
 
     return Scaffold(
+      backgroundColor: Colors.red,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -165,45 +167,73 @@ class _QrScreenState extends State<QrScreen> with WidgetsBindingObserver {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(height: 100.h),
-              Text.rich(
-                TextSpan(
-                  text: appLocalizations.welcomeTo, // Use localized string
-                  style: GoogleFonts.notoSansSamaritan(
-                    fontSize: 20.sp,
-                    color: Colors.black,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: appLocalizations.tourGuide, // Use localized string
-                      style: GoogleFonts.notoSansSamaritan(
-                        fontSize: 17.sp,
-                        color: Colors.black45,
-                      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(height: 60.h),
+                Text.rich(
+                  TextSpan(
+                    text: appLocalizations.welcomeTo,
+                    style: GoogleFonts.notoSansSamaritan(
+                      fontSize: 20.sp,
+                      color: Colors.white,
                     ),
-                  ],
+                    children: [
+                      TextSpan(
+                        text: appLocalizations.tourGuide,
+                        style: GoogleFonts.notoSansSamaritan(
+                          fontSize: 17.sp,
+                          color: Colors.white,
+                        ),
+                      ),
+                      TextSpan(
+                        text: "SAM PO KONG\n",
+                        style: GoogleFonts.notoSansSamaritan(
+                          fontSize: 17.sp,
+                          color: Colors.white,
+                        ),
+                      ),
+                      TextSpan(
+                        text: "SEMARANG",
+                        style: GoogleFonts.notoSansSamaritan(
+                          fontSize: 17.sp,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
-              ),
-            ],
+                SizedBox(height: 30.h),
+                Image.asset(
+                  Assets.ilustration,
+                  width: 200.w,
+                  height: 200.h,
+                ),
+                SizedBox(height: 40.h),
+
+                /// Button scan
+                buttonAction(context, handleScannedBarcode, () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return ScannerPage(onDetect: handleScannedBarcode);
+                      },
+                    ),
+                  );
+                }, appLocalizations.scanQrCode, Colors.amber),
+                SizedBox(
+                    height: 20.h), // spacing bawah agar tidak terlalu mepet
+              ],
+            ),
           ),
-          const Spacer(),
-          buttonAction(context, handleScannedBarcode, () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return ScannerPage(onDetect: handleScannedBarcode);
-                },
-              ),
-            );
-          }, appLocalizations.scanQrCode),
-        ],
+        ),
       ),
     );
   }

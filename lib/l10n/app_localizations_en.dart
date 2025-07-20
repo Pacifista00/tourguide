@@ -12,7 +12,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get welcomeTo => 'Welcome To\n';
 
   @override
-  String get tourGuide => 'TourGuide';
+  String get tourGuide => 'TourGuide\n';
 
   @override
   String get barcodeMismatch => 'Barcode Mismatch';

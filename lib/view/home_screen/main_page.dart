@@ -39,20 +39,20 @@ class _MainPageState extends State<MainPage> {
               );
             },
             child: Card(
+              elevation: 1,
+              shape: RoundedRectangleBorder(
+                side: const BorderSide(width: 1, color: Colors.grey),
+                borderRadius: BorderRadius.circular(20),
+              ),
               margin: const EdgeInsets.only(bottom: 16),
-              child: Column(
-                children: [
-                  Image.asset(gambarList[index], fit: BoxFit.cover),
-                  const SizedBox(height: 5),
-                  Text(
-                    '${appLocalizations.imageStep}${index + 1}',
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                ],
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  gambarList[index],
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: 200, // kamu bisa sesuaikan tingginya
+                ),
               ),
             ),
           );

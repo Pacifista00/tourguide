@@ -107,7 +107,7 @@ abstract class AppLocalizations {
   /// No description provided for @tourGuide.
   ///
   /// In en, this message translates to:
-  /// **'TourGuide'**
+  /// **'TourGuide\n'**
   String get tourGuide;
 
   /// No description provided for @barcodeMismatch.

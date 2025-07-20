@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Future.delayed(const Duration(seconds: 4), () {
       if (!mounted) return; // Pastikan widget masih aktif
-      Navigator.pushReplacementNamed(context, Routes.onBoardPage);
+      Navigator.pushReplacementNamed(context, Routes.qrScreen);
     });
   }
 

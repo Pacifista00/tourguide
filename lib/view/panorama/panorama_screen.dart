@@ -109,13 +109,13 @@ class _PanoramaViewPageState extends State<PanoramaViewPage> {
                           ),
                           TextButton(
                             onPressed: () async {
-                              PIPView.of(context)?.presentBelow(
-                                  PanoramaViewPage(
-                                      imagePath: widget.imagePath,
-                                      title: widget.title));
+                              // PIPView.of(context)?.presentBelow(
+                              //     PanoramaViewPage(
+                              //         imagePath: widget.imagePath,
+                              //         title: widget.title));
                               Navigator.pop(context);
                             },
-                            child: const Text("Minimize"),
+                            child: const Text("Tutup"),
                           ),
                         ],
                       );
@@ -155,13 +155,13 @@ class _PanoramaViewPageState extends State<PanoramaViewPage> {
                           ),
                           TextButton(
                             onPressed: () async {
-                              PIPView.of(context)?.presentBelow(
-                                  PanoramaViewPage(
-                                      imagePath: widget.imagePath,
-                                      title: widget.title));
+                              // PIPView.of(context)?.presentBelow(
+                              //     PanoramaViewPage(
+                              //         imagePath: widget.imagePath,
+                              //         title: widget.title));
                               Navigator.pop(context);
                             },
-                            child: const Text("Minimize"),
+                            child: const Text("Tutup"),
                           ),
                         ],
                       );
@@ -200,13 +200,15 @@ class _PanoramaViewPageState extends State<PanoramaViewPage> {
                           ),
                           TextButton(
                             onPressed: () async {
-                              PIPView.of(context)?.presentBelow(
-                                  PanoramaViewPage(
-                                      imagePath: widget.imagePath,
-                                      title: widget.title));
+                              // PIPView.of(context)?.presentBelow(
+                              //     PanoramaViewPage(
+                              //         imagePath: widget.imagePath,
+                              //         title: widget.title)
+
+                              //         );
                               Navigator.pop(context);
                             },
-                            child: const Text("Minimize"),
+                            child: const Text("Tutup"),
                           ),
                         ],
                       );

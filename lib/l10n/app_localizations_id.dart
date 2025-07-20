@@ -12,7 +12,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get welcomeTo => 'Selamat Datang di\n';
 
   @override
-  String get tourGuide => 'TourGuide';
+  String get tourGuide => 'TourGuide\n';
 
   @override
   String get barcodeMismatch => 'Barcode Tidak Cocok';
@@ -45,5 +45,5 @@ class AppLocalizationsId extends AppLocalizations {
   String get objectTag => 'Ini info penting objek';
 
   @override
-  String get playSound => 'Putar Suara';
+  String get playSound => 'Putar Video';
 }

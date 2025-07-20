@@ -54,6 +54,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
     return Scaffold(
+      backgroundColor: Colors.red,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -98,7 +99,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
           SizedBox(height: 50.h),
           buttonAction(context, null, () {
             Navigator.pushNamed(context, Routes.homeScreen);
-          }, appLocalizations.nextStep),
+          }, appLocalizations.nextStep, Colors.amber),
         ],
       ),
     );
