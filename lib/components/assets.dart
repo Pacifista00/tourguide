@@ -13,8 +13,8 @@ class Assets {
 
 //kumpulan audio asset
 class AssetsAudio {
-  static const String audioOnboard = "Assets/Audio/wonderful.mp3";
-  static const String audioOnboarden = "Assets/Audio/wonderful-lesson.mp3";
+  static const String audioOnboard = "Assets/Audio/gerbang.mp3";
+  static const String audioOnboarden = "Assets/Audio/en-gerbang.mp3";
 }
 
 class AssetsVideo {

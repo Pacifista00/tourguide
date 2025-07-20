@@ -14,14 +14,21 @@ class OnboardScreen extends StatefulWidget {
 }
 
 class _OnboardScreenState extends State<OnboardScreen> {
-  late AudioPlayer _player;
+  final AudioPlayer _player = AudioPlayer();
   bool isPlaying = false;
 
   @override
   void initState() {
     super.initState();
-    _player = AudioPlayer();
-    _player.setAsset(AssetsAudio.audioOnboard);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      final locale = Localizations.localeOf(context);
+      final audioPath = locale.languageCode == 'en'
+          ? AssetsAudio.audioOnboarden
+          : AssetsAudio.audioOnboard;
+
+      await _player.setAsset(audioPath); // Preload audio sesuai bahasa
+    }); //
 
     _player.playerStateStream.listen((state) {
       setState(() {
