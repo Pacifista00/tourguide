@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:tourguide/components/assets.dart';
 import 'package:tourguide/components/routes.dart';
 import 'package:tourguide/l10n/app_localizations.dart';
 import 'package:tourguide/widget/button.dart';
-import 'package:just_audio/just_audio.dart';
 
 class OnboardScreen extends StatefulWidget {
   const OnboardScreen({super.key});
@@ -21,7 +21,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
   void initState() {
     super.initState();
     _player = AudioPlayer();
-    _player.setAsset(AssetsAudio.audioOnboard); // Preload audio
+    _player.setAsset(AssetsAudio.audioOnboard);
 
     _player.playerStateStream.listen((state) {
       setState(() {
@@ -53,54 +53,81 @@ class _OnboardScreenState extends State<OnboardScreen> {
   @override
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
+
     return Scaffold(
       backgroundColor: Colors.red,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(height: 100.h),
-          InkWell(
-            onTap: () => _playSound(),
-            child: Stack(
-              alignment: Alignment.center,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 24.h),
+            child: Column(
               children: [
-                Container(
-                  width: 250.w,
-                  height: 200.h,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(Assets.objekOnboard),
-                      fit: BoxFit.cover,
-                    ),
-                    borderRadius: BorderRadius.circular(20.w),
+                SizedBox(height: 50.h),
+
+                // Gambar + Tombol Play/Pause
+                InkWell(
+                  onTap: _playSound,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        width: 250.w,
+                        height: 200.h,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.w),
+                          image: DecorationImage(
+                            image: AssetImage(Assets.objekOnboard),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.black45,
+                          shape: BoxShape.circle,
+                        ),
+                        padding: EdgeInsets.all(12.w),
+                        child: AnimatedSwitcher(
+                          duration: const Duration(milliseconds: 300),
+                          child: Icon(
+                            isPlaying ? Icons.pause : Icons.play_arrow,
+                            key: ValueKey(isPlaying),
+                            size: 40.w,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black45,
-                    shape: BoxShape.circle,
+
+                SizedBox(height: 24.h),
+
+                // Deskripsi
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24.w),
+                  child: Text(
+                    "Sam Poo Kong merupakan klenteng bersejarah yang mencerminkan perpaduan budaya Tionghoa dan Jawa, dibangun di lokasi yang diyakini pernah disinggahi Laksamana Zheng He pada tahun 1416. Tempat ini berasal dari gua batu yang dijadikan tempat ibadah, dan kini telah berkembang menjadi kompleks klenteng yang megah, dengan pembangunan ulang gedung utamanya pada tahun 2002–2005.",
+                    style: TextStyle(color: Colors.white),
+                    textAlign: TextAlign.justify,
                   ),
-                  child: Padding(
-                    padding: EdgeInsets.all(12.w),
-                    child: AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 300),
-                      child: Icon(
-                        isPlaying ? Icons.pause : Icons.play_arrow,
-                        key: ValueKey(isPlaying),
-                        size: 40.w,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
+                ),
+
+                SizedBox(height: 40.h),
+
+                // Tombol Lanjut
+                buttonAction(
+                  context,
+                  null,
+                  () => Navigator.pushNamed(context, Routes.homeScreen),
+                  appLocalizations.nextStep,
+                  Colors.amber,
                 ),
               ],
             ),
           ),
-          SizedBox(height: 50.h),
-          buttonAction(context, null, () {
-            Navigator.pushNamed(context, Routes.homeScreen);
-          }, appLocalizations.nextStep, Colors.amber),
-        ],
+        ),
       ),
     );
   }
