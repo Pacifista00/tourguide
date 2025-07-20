@@ -179,7 +179,7 @@ abstract class AppLocalizations {
   /// No description provided for @description.
   ///
   /// In en, this message translates to:
-  /// **'Sam Poo Kong merupakan klenteng bersejarah yang mencerminkan perpaduan budaya Tionghoa dan Jawa, dibangun di lokasi yang diyakini pernah disinggahi Laksamana Zheng He pada tahun 1416. Tempat ini berasal dari gua batu yang dijadikan tempat ibadah, dan kini telah berkembang menjadi kompleks klenteng yang megah, dengan pembangunan ulang gedung utamanya pada tahun 2002–2005.'**
+  /// **'Sam Poo Kong is a historic temple that reflects a blend of Chinese and Javanese cultures. It was built at a location believed to have been visited by Admiral Zheng He in 1416. The site originated from a stone cave used for worship, and it has since evolved into a grand temple complex, with the main building reconstructed between 2002 and 2005.'**
   String get description;
 }
 
