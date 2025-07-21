@@ -19,4 +19,16 @@ class AssetsAudio {
 
 class AssetsVideo {
   static const String videoPenjelasan = "Assets/Videos/videoPenjelasan.mp4";
+  static const String videoHotspot1Id =
+      'Assets/Videos/Patung-Laksamana-Zheng-He.mp4';
+  static const String videoHotspot1En =
+      'Assets/Videos/en-Patung-Laksamana-Zheng-He.mp4';
+  static const String videoHotspot2Id =
+      'Assets/Videos/Tempat-pemujaan-klenteng-besar.mp4';
+  static const String videoHotspot2En =
+      'Assets/Videos/en-Tempat-pemujaan-klenteng-besar.mp4';
+  static const String videoHotspot3Id =
+      'Assets/Videos/en-Tempat-Pemujaan-Dewa-Bumi-Tho-Tee-Kong-.mp4';
+  static const String videoHotspot3En =
+      'Assets/Videos/en-Tempat-Pemujaan-Dewa-Bumi-Tho-Tee-Kong-.mp4';
 }
